@@ -20,14 +20,14 @@ function isPrime( n ) {
     }
     return true;
 }
-//format print out
+/*format print out*/
 var fmt = function(arr){
 	return arr.join(",");
 }
-//====if need print prime to output file=====
+//*if need print prime to output file*/
 var fs = require('fs');
 fs.writeFileSync( 'prime.txt', fmt(listPrimes(100)) );
 
 
-////=====just print prime to console=====
+///*=====just print prime to console*/
 //console.log(fmt(listPrimes(100)));
