@@ -34,10 +34,12 @@ env
 ```
 
 ##### common commands
+```
 echo $PATH
 alias ll='ls -alrth'
 sudo apt-get install -y git-core
 which git
+```
 
 ##### copy files between remote machines
 ```
