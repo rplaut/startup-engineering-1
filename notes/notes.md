@@ -226,12 +226,12 @@ git log -p
 git log -p --color
 ```
 - github
+
 ```
 git clone github.com/somelinks....master.git
 git add ...
 git commit -m "commit message"
 git push origin master
---------
 ssh-keygen -t rsa -C "foo@stanford.edu"
 ssh -T git@github.com
 git push -u origin master 
