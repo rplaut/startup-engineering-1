@@ -11,11 +11,11 @@ ssh -i mykeypair.com ec2-54....compute.amazonaws.com
 
 ```
 mkdir -p ~/.ssh
-$ cp ~/downloads/skey.pem ~/.ssh/
-$ chmod 400 ~/.ssh/skey.pem
-$ chmod 700 ~/.ssh
-$ nano ~/.ssh/config # edit the file as shown below
-$ cat ~/.ssh/config
+cp ~/downloads/skey.pem ~/.ssh/
+chmod 400 ~/.ssh/skey.pem
+chmod 700 ~/.ssh
+nano ~/.ssh/config # edit the file as shown below
+cat ~/.ssh/config
 Host awshost1
 HostName ec2-54-218-35-71.us-west-2.compute.amazonaws.com
  User ubuntu
@@ -50,7 +50,7 @@ scp hello.txt awshost1:~/foo.txt
 
 ##### install node and npm
 
-```
+``` shell 
 $ sudo apt-get update
 # Install a special package
 $ sudo apt-get install -y python-software-properties python g++ make
@@ -96,9 +96,7 @@ else if(n > 2) { return fibonacci(n - 1) + fibonacci(n - 2);}
  var phi = (1 + Math.sqrt(5))/2;
  return Math.round((Math.pow(phi, n) - Math.pow(1-phi, n))/Math.sqrt(5));
  };
-
  // Find first K Fibonacci numbers via basic for loop
-
 var firstkfib = function(k) {
 var i = 1;
 var arr = [];
@@ -107,12 +105,10 @@ arr.push(fibonacci(i));
 }
 return arr;
 };
-
  // Print to console
  var fmt = function(arr) {
  return arr.join(" ");
  };
-
  var k = 20;
  console.log("firstkfib(" + k + ")");
  console.log(fmt(firstkfib(k)));
