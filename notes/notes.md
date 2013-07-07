@@ -47,7 +47,13 @@ scp -i keypair.pem hello.txt amazonserver:~/
 scp hello.txt awshost1:~/
 scp hello.txt awshost1:~/foo.txt
 ```
-
+##### remote sync
+```
+rsync -avp something.txt awshost4:~/
+...
+rsync -avp something.txt awshost4:~/
+...
+```
 ##### install node and npm
 
 ``` shell 
@@ -114,3 +120,120 @@ return arr;
  console.log(fmt(firstkfib(k)));
  
 ```
+
+
+##### heroku
+- install git
+```
+sudo apt-get install -y git-core
+which git
+```
+
+- install heroku
+```
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+which heroku
+ heroku login
+ssh-keygen -t rsa
+heroku keys:add
+```
+
+- deploy application to heroku
+```
+## Clone a sample repo and push to heroku
+git clone https://github.com/heroku/node-js-sample.git
+cd node-js-sample
+heroku create
+git push heroku master
+```
+
+##### The Cloud and IAAS/PAAS/SAAS
+
+**IAAS:** (*infrastructure as a service*)AWS, Joyent, Rackspace Cloud
+**PAAS:** (*platform at a service*)Heroku, DotCloud, Nodester, Google AppEngine
+**SAAS:** (*software as a service*)Salesforce, Google Apps, Mint.com
+
+##### dealing with links
+```
+wget -w 2 -r -np -k -p http://www.stanford.edu/class/cs106b
+curl https://install.meteor.com | less #
+```
+
+##### split large files
+```
+split -d -l 1000 *ptt subset.ptt.
+ll subset.ptt*
+```
+##### archive and compress file
+```
+mkdir genome
+mv *ptt* genome/
+tar -cvf genome.tar genome
+gzip genome.tar
+tar -xzvf genome.tar.gz
+```
+##### sed and awk
+```
+sed ’s/\r/\n/g’ windows-newline-file.csv
+tail -n+4 *ptt | awk -F"\t" ’{print $2, $3, $3 + 5}’ | head
+```
+
+##### xargs and tee
+```
+find /etc -name ’*\.sh’ | xargs head -2
+ls | tee list.txt
+```
+
+##### install screen
+```
+cd $HOME
+wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
+head .screenrc
+screen
+```
+##### install emacs (wrapped in a setup.sh in startup class)
+```
+cd $HOME
+sudo apt-get install -y git-core # if you haven’t already
+git clone https://github.com/startup-class/setup.git
+./setup/setup.sh
+npm install -g jshint ## for javascript highlight
+```
+
+##### about git
+```
+sudo apt-get install -y git-core
+mkdir myrepo
+cd myrepo
+git config --global user.name "John Smith"
+git config --global user.email "example@stanford.edu"
+git init
+# Initialized empty Git repository in /home/ubuntu/myrepo/.git/
+git status
+echo -e ’line1\nline2’ > file.txt
+git status
+git add file.txt
+git status
+git commit -m "Added first file"
+git log
+echo -e "line3" >> file.txt
+git status
+git diff file.txt
+git add file.txt
+git commit -m "Added a new line to the file."
+git log
+git log -p
+git log -p --color
+```
+- github
+```
+git clone github.com/somelinks....master.git
+git add ...
+git commit -m "commit message"
+git push origin master
+--------
+ssh-keygen -t rsa -C "foo@stanford.edu"
+ssh -T git@github.com
+git push -u origin master 
+```
+
